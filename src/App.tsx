@@ -12,7 +12,7 @@ import { useEffect } from "react";
 const queryClient = new QueryClient();
 
 function ScrollToHash() {
-  const { hash } = useLocation();
+  const { hash, pathname } = useLocation();
 
   useEffect(() => {
     if (hash) {
@@ -22,8 +22,11 @@ function ScrollToHash() {
           el.scrollIntoView({ behavior: "smooth" });
         }, 100);
       }
+    } else {
+      // 👇 THIS FIXES YOUR PROBLEM (scroll to top)
+      window.scrollTo(0, 0);
     }
-  }, [hash]);
+  }, [hash, pathname]);
 
   return null;
 }
@@ -34,7 +37,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <ScrollToHash /> {/* 👈 THIS LINE IS THE FIX */}
+        <ScrollToHash />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/careers" element={<Careers />} />
