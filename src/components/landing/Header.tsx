@@ -37,7 +37,7 @@ const Header = () => {
 
         <div className="hidden md:block">
           <Button asChild>
-            <a href="#cta">Buy Insurance</a>
+            <a href="/#cta">Buy Insurance</a>
           </Button>
         </div>
 
@@ -64,7 +64,7 @@ const Header = () => {
               </a>
             ))}
             <Button asChild className="mt-2">
-              <a href="#cta">Buy Insurance</a>
+              <a href="/#cta">Buy Insurance</a>
             </Button>
           </div>
         </div>
